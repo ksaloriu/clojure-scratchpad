@@ -61,7 +61,18 @@
   []
   (println "my-func!"))
 
+(defn multi-arity
+  ([one] one)
+  ([one two] (str one " + " two)))
 
+(defn rest-param
+  [& rest]
+  (map inc rest))
+
+(defn destructure-vec
+  [[first second & rest]]
+  (println first)
+  (println second))
 
 
 
