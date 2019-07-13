@@ -74,11 +74,6 @@
   (println first)
   (println second))
 
-
-
-
-
-
-
-
-
+;; anonymous functions
+(map (fn [x] (* x x)) [1 2 3 4 5])
+(map #(* % %) [1 2 3 4 5])
