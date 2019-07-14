@@ -77,3 +77,26 @@
 ;; anonymous functions
 (map (fn [x] (* x x)) [1 2 3 4 5])
 (map #(* % %) [1 2 3 4 5])
+
+;; let
+(let [x 1] (* 2 x))
+
+;; sequence abstraction
+(map inc '(1 2 3 4 5))
+
+(map inc [1 2 3 4 5])
+;; same as:
+(map inc (seq [1 2 3 4 5]))
+(seq [1 2 3 4 5])
+
+;; works for maps, turn to list of 2-element vectors:
+(seq {"a" 1 "b" 2 "c" 3})
+
+(map str {"a" 1 "b" 2 "c" 3})
+
+(take 2 [1 2 3 4])
+(drop 2 [1 2 3 4])
+
+(sort [2 1 3])
+(sort-by count ["aaa" "bb" "c"])
+(concat [1 2 3] [4 5 6])
