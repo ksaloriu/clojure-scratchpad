@@ -91,6 +91,7 @@
 
 ;; works for maps, turn to list of 2-element vectors:
 (seq {"a" 1 "b" 2 "c" 3})
+(map str {"a" 1 "b" 2 "c" 3})
 
 ;; into to transform back to original type:
 (into [] (map inc [1 2 3 4 5]))
@@ -102,11 +103,33 @@
 ;; conj, like into but for argumetns not sequences
 (conj [] 1 2 3 4 5)
 
-(map str {"a" 1 "b" 2 "c" 3})
-
+;; common sequence functions
 (take 2 [1 2 3 4])
 (drop 2 [1 2 3 4])
+
+(take-while #(< % 3) [1 2 3 4 1 2 3 4])
+(drop-while #(< % 3) [1 2 3 4 1 2 3 4])
+
+(filter #(= (mod % 2) 0) [1 2 3 4 5 6])
+(some #(> % 2) [1 2 3])
+(some #(> % 3) [1 2 3])
 
 (sort [2 1 3])
 (sort-by count ["aaa" "bb" "c"])
 (concat [1 2 3] [4 5 6])
+
+;; lazy sequences
+
+;; repeat creates infinite lazy sequence
+(take 5 (repeat 1))
+
+(defn costly-inc
+  [n]
+  (Thread/sleep 1000)
+  (inc n))
+;; costly-inc not evaluated, lazy sequence
+(time (map costly-inc [1 2 3 4 5]))
+;; costly-inc evaluated for *all* list elements, not just first, due to batching
+(time (first (map costly-inc [1 2 3 4 5])))
+;; this seems to run costly-inc only once (?)
+(time (first (map costly-inc (take 1000 (repeat 1)))))
