@@ -92,6 +92,16 @@
 ;; works for maps, turn to list of 2-element vectors:
 (seq {"a" 1 "b" 2 "c" 3})
 
+;; into to transform back to original type:
+(into [] (map inc [1 2 3 4 5]))
+;; works for other types as well:
+(into #{} [1 2 2 2 2 3 4 5])
+(into #{1 2} [3 4 5 6])
+(into {} [[1 1] [2 2]])
+
+;; conj, like into but for argumetns not sequences
+(conj [] 1 2 3 4 5)
+
 (map str {"a" 1 "b" 2 "c" 3})
 
 (take 2 [1 2 3 4])
