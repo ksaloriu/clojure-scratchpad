@@ -135,3 +135,12 @@
 (time (first (map costly-inc (take 1000 (repeat 1)))))
 
 (take 5 (repeatedly (fn [] (rand-int 10))))
+
+;; Higher-order functions
+
+(apply max [1 2 3 4 5])
+(apply + [1 2 3 4 5])
+
+
+(ns-name *ns*)
+(ns-interns *ns*)
