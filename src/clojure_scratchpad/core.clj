@@ -133,3 +133,5 @@
 (time (first (map costly-inc [1 2 3 4 5])))
 ;; this seems to run costly-inc only once (?)
 (time (first (map costly-inc (take 1000 (repeat 1)))))
+
+(take 5 (repeatedly (fn [] (rand-int 10))))
