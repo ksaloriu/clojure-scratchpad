@@ -147,3 +147,22 @@
 
 
 (eval (read-string "(+ 1 2 3)"))
+
+;; reader macro examples
+(read-string "#(+ 1 %)")
+(read-string "'(1 2 3)")
+(read-string "@variable")
+
+;; macros
+
+(defmacro ignore-last
+  [function-call]
+  (butlast function-call))
+(ignore-last (+ 1 2 3))
+(ignore-last (+ 1 2 "ignored!"))
+(macroexpand '(ignore-last (+ 1 2 3)))
+
+(defmacro infix
+  [infixed]
+  (list (second infixed) (first infixed) (last infixed)))
+(infix (1 + 2))
