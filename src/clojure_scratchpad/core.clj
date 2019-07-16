@@ -144,3 +144,6 @@
 
 (ns-name *ns*)
 (ns-interns *ns*)
+
+
+(eval (read-string "(+ 1 2 3)"))
