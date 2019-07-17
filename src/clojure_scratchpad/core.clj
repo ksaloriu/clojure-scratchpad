@@ -17,6 +17,14 @@
 (if nil "..." "nil is not true...")
 (if "" "empty string true!" "empty string false!")
 
+;; or returns first truthy value or nil if all falsey
+(or false nil "foo")
+(or false nil)
+
+;; and returns first falsey value or last value if all truthy
+(and "foo" "bar" nil)
+(and "foo" "bar" "zam")
+
 (def my-number 3)
 (println my-number)
 
