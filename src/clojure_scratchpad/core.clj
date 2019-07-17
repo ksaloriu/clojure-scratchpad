@@ -166,3 +166,8 @@
   [infixed]
   (list (second infixed) (first infixed) (last infixed)))
 (infix (1 + 2))
+
+(defmacro infix-2
+  [[operand1 operator operand2]]
+  (list operator operand1 operand2))
+(infix-2 (1 + 2))
