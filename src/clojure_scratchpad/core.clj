@@ -182,3 +182,17 @@
   [[operand1 operator operand2]]
   (list operator operand1 operand2))
 (infix-2 (1 + 2))
+
+;; quote and syntax quote
+'(+ 1 2)
+(quote (+ 1 2))
+'undefined
+
+'(+ 1 2)
+;; syntax quote contains namespace for +
+`(+ 1 2)
+;; unquote with ~
+`(+ 1 2 ~(inc 2))
+;; unquote splicing
+`(+ ~(list 1 2 3))
+`(+ ~@(list 1 2 3))
