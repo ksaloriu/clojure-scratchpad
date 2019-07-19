@@ -196,3 +196,13 @@
 ;; unquote splicing
 `(+ ~(list 1 2 3))
 `(+ ~@(list 1 2 3))
+
+;; futures
+
+(let [result (future (println "prints only once!") (+ 1 1))]
+  (println "deref: " (deref result))
+  (println "@: " @result))
+
+;; deref timeout
+(deref (future (Thread/sleep 1000) 1) 200 2)
+(deref (future (Thread/sleep 1000) 1) 2000 2)
