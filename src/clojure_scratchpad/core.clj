@@ -208,3 +208,9 @@
 (deref (future (Thread/sleep 1000) 1) 2000 2)
 
 (realized? (future (Thread/sleep 1000)))
+
+;; delay
+(def delayed
+  (delay (println "evaluated") "result"))
+(force delayed)
+@delayed
