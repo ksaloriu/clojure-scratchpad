@@ -206,3 +206,5 @@
 ;; deref timeout
 (deref (future (Thread/sleep 1000) 1) 200 2)
 (deref (future (Thread/sleep 1000) 1) 2000 2)
+
+(realized? (future (Thread/sleep 1000)))
