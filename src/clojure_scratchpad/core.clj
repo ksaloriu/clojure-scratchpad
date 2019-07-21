@@ -214,3 +214,12 @@
   (delay (println "evaluated") "result"))
 (force delayed)
 @delayed
+
+;; atoms
+
+(def foo (atom {:name "foo" :age 100}))
+@foo
+
+(swap! foo update-in [:age] + 1)
+@foo
+
