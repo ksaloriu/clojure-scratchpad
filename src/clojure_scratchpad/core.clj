@@ -223,3 +223,11 @@
 @foo
 (reset! foo {:name "foo" :age 110})
 @foo
+
+;; exceptions
+
+(try (throw (RuntimeException. "runtime error!"))
+     (catch Exception e
+       (println "catch"))
+     (finally
+       (println "finally")))
