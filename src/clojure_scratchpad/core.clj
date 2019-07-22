@@ -219,7 +219,7 @@
 
 (def foo (atom {:name "foo" :age 100}))
 @foo
-
 (swap! foo update-in [:age] + 1)
 @foo
-
+(reset! foo {:name "foo" :age 110})
+@foo
