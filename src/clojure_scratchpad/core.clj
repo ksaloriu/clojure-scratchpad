@@ -129,6 +129,16 @@
 (sort-by count ["aaa" "bb" "c"])
 (concat [1 2 3] [4 5 6])
 
+;; loop and recur
+
+(defn factorial [n]
+  (loop [current n
+         result 1]
+    (if (= current 1) result
+        (recur
+         (dec current)
+         (* result current)))))
+
 ;; lazy sequences
 
 ;; repeat creates infinite lazy sequence
