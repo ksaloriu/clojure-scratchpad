@@ -139,6 +139,13 @@
          (dec current)
          (* result current)))))
 
+;; threading macro
+
+(-> 1
+    (inc)
+    (+ 100)
+    (/ 3))
+
 ;; lazy sequences
 
 ;; repeat creates infinite lazy sequence
