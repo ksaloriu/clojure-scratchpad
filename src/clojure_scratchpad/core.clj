@@ -139,12 +139,16 @@
          (dec current)
          (* result current)))))
 
-;; threading macro
+;; threading macros
 
 (-> 1
     (inc)
     (+ 100)
     (/ 3))
+
+(->> "zam"
+     (str " bar ")
+     (str "foo "))
 
 ;; lazy sequences
 
