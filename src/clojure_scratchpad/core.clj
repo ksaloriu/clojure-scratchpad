@@ -41,6 +41,8 @@
 ({:a 1 :b 2 :c 3} :c)
 (:a {:a 1 :b 2 :c 3})
 (get-in {:a 1 :b {:c "value"}} [:b :c])
+(assoc {:a 1 :b 2} :a 2)
+(assoc {:a 1 :b 2} :c 2)
 
 ;; vectors
 [1 2 3 4]
@@ -49,6 +51,7 @@
 [1 2 3 "4"]
 (vector 1 2 3 4)
 (conj [1 2 3] 4)
+(assoc [1 2 3 4] 0 3)
 
 ;; lists
 '(1 2 3 4)
