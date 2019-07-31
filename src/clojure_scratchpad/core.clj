@@ -93,6 +93,10 @@
 (let [x 1] (* 2 x))
 
 ;; sequence abstraction
+;; ISeq: need to implement first, rest and cons
+(cons 1 ())
+(cons 1 (cons 2 ()))
+
 (map inc '(1 2 3 4 5))
 
 (map inc [1 2 3 4 5])
