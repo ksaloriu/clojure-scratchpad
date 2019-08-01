@@ -180,6 +180,9 @@
 (apply max [1 2 3 4 5])
 (apply + [1 2 3 4 5])
 
+(every? true? [true true true])
+(every? true? [true true false])
+(some true? [true true false])
 
 (ns-name *ns*)
 (ns-interns *ns*)
