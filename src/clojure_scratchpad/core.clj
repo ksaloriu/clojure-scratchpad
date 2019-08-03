@@ -187,6 +187,13 @@
 (ns-name *ns*)
 (ns-interns *ns*)
 
+;; dynamic scope
+
+(def ^:dynamic *special-var* "foo")
+(defn print-var [] (println *special-var*))
+(print-var)
+(binding [*special-var* "bar"]
+  (print-var))
 
 (eval (read-string "(+ 1 2 3)"))
 
