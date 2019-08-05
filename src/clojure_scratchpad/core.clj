@@ -269,3 +269,11 @@
        (println "catch"))
      (finally
        (println "finally")))
+
+;; metadata
+
+(def data (with-meta {:key "value"} {:tag "metadata"}))
+(meta data)
+
+;; does not work:
+;; (def num (with-meta 1 {:tag "value"}))
